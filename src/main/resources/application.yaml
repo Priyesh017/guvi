@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: guvi
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/guvi_task
+    username: root
+    password: ""
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true #To show the raw sql in the log terminal
+    properties:
+      hibernate:
+        format_sql: true #To format the sql query
+
+  # MongoDB Configuration
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/guvi_tasks
