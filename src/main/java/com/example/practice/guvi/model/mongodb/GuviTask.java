@@ -1,11 +1,13 @@
 package com.example.practice.guvi.model.mongodb;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
+@Builder
 @Document(collection = "guvi_tasks")
 public class GuviTask {
     @Id

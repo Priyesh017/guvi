@@ -1,7 +1,9 @@
 package com.example.practice.guvi.service;
 
 import com.example.practice.guvi.dto.EmployeeRequestDto;
+import com.example.practice.guvi.model.mongodb.GuviTask;
 import com.example.practice.guvi.model.mysql.Employee;
+import com.example.practice.guvi.repository.mongodb.GuviTasksRepository;
 import com.example.practice.guvi.repository.mysql.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EmployeeService {
     private final EmployeeRepository employeeRepository;
+    private final GuviTasksRepository guviTasksRepository;
 
     public List<Employee> getEmployees() {
         return employeeRepository.findAll();
@@ -26,6 +29,9 @@ public class EmployeeService {
 
          // Saving the employee object into employee repository
          Employee savedEmployee = employeeRepository.save(employee);
+
+
+        //employeeRepository.saveAll();
 
          return savedEmployee.getId();
     }
