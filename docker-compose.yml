@@ -1,6 +1,19 @@
 version: '3.8'
 
 services:
+  # --- My SQL ---
+  mysql:
+    image: mysql:8.0
+    container_name: guvi_mysql
+    environment:
+      # Allows your Java code to use an empty string for the password
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      # Automatically creates your database when the container starts
+      MYSQL_DATABASE: 'guvi_task'
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
   # --- MongoDB Setup ---
   mongodb:
     image: mongo:latest
