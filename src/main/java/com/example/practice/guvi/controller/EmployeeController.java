@@ -4,6 +4,7 @@ import com.example.practice.guvi.dto.EmployeeRequestDto;
 import com.example.practice.guvi.model.mongodb.GuviTask;
 import com.example.practice.guvi.model.mysql.Employee;
 import com.example.practice.guvi.service.EmployeeService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public Integer saveEmployee(@RequestBody EmployeeRequestDto requestDto) {
+    public Integer saveEmployee(@RequestBody @Valid EmployeeRequestDto requestDto) {
         return employeeService.saveEmployee(requestDto);
     }
 }
