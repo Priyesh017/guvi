@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Employee</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css">
+</head>
+<body>
+    <form th:action="@{/save-employee}" th:object="${employee}" method = "post">
+        <label>Employee ID: </label>
+        <input type="text" th:field="*{id}" />
+        <span class="error" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+        <br>
+        <label>Employee Name: </label>
+        <input type="text" th:field="*{name}" />
+        <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        <br>
+        <label>Employee Email: </label>
+        <input type="text" th:field="*{email}" />
+        <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

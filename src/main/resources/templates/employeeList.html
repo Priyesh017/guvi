@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" href="../static/css/styles.css">
+</head>
+<body>
+<!--    <div th:each = "employee : ${employeeList}" th:text="${employee}">-->
+<!--    </div>-->
+    <div th:include="fragments/header :: header"></div>
+
+    <table>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Email</th>
+        </tr>
+        <tbody>
+            <tr th:each = "employee : ${employeeList}" >
+                <td th:text = "${employee.id}"></td>
+                <td th:text = "${employee.name}"></td>
+                <td th:text = "${employee.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/save-employee}">Add a new employee+</a>
+    </div>
+</body>
+</html>
